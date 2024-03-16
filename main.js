@@ -6,7 +6,7 @@ $(document).ready(function(){
     const repositories = $('#repositories');
     const followers = $('#followers');
     const following = $('#following');
-    const profileLink = ('#user-link');
+    const profileLink = $('#user-link');
 
 
     fetch(endpoint)
@@ -19,6 +19,6 @@ $(document).ready(function(){
             repositories.innerText = json.public_repos;
             followers.innerText = json.followers;
             following.innerText = json.following;
-            profileLink.href = json.html.url;
+            profileLink.href = json.html_url;
         });
 });
