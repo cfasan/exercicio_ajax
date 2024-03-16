@@ -8,13 +8,17 @@ $(document).ready(function(){
     const following = $('#following');
     const profileLink = $('#user-link');
 
-    $.ajax(endpoint).done(function(resposta){
-        profileAvatar.attr('src', resposta.avatar_url);
-        profileName.text(resposta.name);
-        profileUserName.text(resposta.login);
-        repositories.text(resposta.public_repos);
-        followers.text(resposta.followers);
-        following.text(resposta.following);
-        profileLink.attr('href', resposta.html_url);
-    });
+    try{
+        $.ajax(endpoint).done(function(resposta){
+            profileAvatar.attr('src', resposta.avatar_url);
+            profileName.text(resposta.name);
+            profileUserName.text(resposta.login);
+            repositories.text(resposta.public_repos);
+            followers.text(resposta.followers);
+            following.text(resposta.following);
+            profileLink.attr('href', resposta.html_url);
+        });
+    }catch {
+        console.log('Ocorreu um erro. POr favor, tente novamente.');
+    };
 });
